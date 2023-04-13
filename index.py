@@ -22,10 +22,16 @@ prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
 # documents = SimpleDirectoryReader('data').load_data()
 
 
-RDFReader = download_loader("RDFReader")
+JSONReader = download_loader("JSONReader")
 
-loader = RDFReader()
-documents = loader.load_data(file=Path('./LibraryMaterial_ttl_20230320.ttl'))
+loader = JSONReader()
+documents = loader.load_data(file=Path('./LibraryMaterial_json_20230320.json'))
+
+# RDF
+# RDFReader = download_loader("RDFReader")
+
+# loader = RDFReader()
+# documents = loader.load_data(file=Path('./LibraryMaterial_ttl_20230320.ttl'))
 
 
 index = GPTSimpleVectorIndex(
