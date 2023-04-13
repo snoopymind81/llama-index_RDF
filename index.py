@@ -5,8 +5,7 @@ import os, streamlit as st
 
 
 from pathlib import Path
-from gpt_index import download_loader
-from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper
+from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper, download_loader
 from langchain import OpenAI
 
 # This example uses text-davinci-003 by default; feel free to change if desired
