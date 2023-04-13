@@ -25,7 +25,7 @@ prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
 RDFReader = download_loader("RDFReader")
 
 loader = RDFReader()
-documents = loader.load_data(file=Path('./ot_result_ver02.ttl'))
+documents = loader.load_data(file=Path('./LibraryMaterial_ttl_20230320.ttl'))
 
 
 index = GPTSimpleVectorIndex(
@@ -33,7 +33,7 @@ index = GPTSimpleVectorIndex(
 )
 
 # Define a simple Streamlit app
-st.title("ARCO 구술채록 온톨로지")
+st.title("도서관 정보 온톨로지")
 query = st.text_input("What would you like to ask?", "")
 
 if st.button("Submit"):
