@@ -5,7 +5,7 @@ import os, streamlit as st
 
 
 from pathlib import Path
-from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper, download_loader
+from llama_index import GPTSimpleVectorIndex, LLMPredictor, PromptHelper, download_loader, Document
 from langchain import OpenAI
 
 # This example uses text-davinci-003 by default; feel free to change if desired
@@ -21,17 +21,16 @@ prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
 # Load documents from the 'data' directory
 # documents = SimpleDirectoryReader('data').load_data()
 
+#JSONReader = download_loader("JSONReader")
 
-JSONReader = download_loader("JSONReader")
-
-loader = JSONReader()
-documents = loader.load_data(file=Path('./LibraryMaterial_json_20230320.json'))
+#loader = JSONReader()
+#documents = loader.load_data(file=Path('./LibraryMaterial_json_20230320.json'))
 
 # RDF
-# RDFReader = download_loader("RDFReader")
+RDFReader = download_loader("RDFReader")
 
-# loader = RDFReader()
-# documents = loader.load_data(file=Path('./LibraryMaterial_ttl_20230320.ttl'))
+loader = RDFReader()
+documents = loader.load_data(file=Path('./ot_result_ver02.ttl'))
 
 
 index = GPTSimpleVectorIndex(
